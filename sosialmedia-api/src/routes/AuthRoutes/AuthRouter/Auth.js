@@ -419,8 +419,8 @@ router.post("/auth/signin", getRateLimiter, async (req, res) => {
         
         return res.cookie("access_token", jwtToken, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            secure: true,
+            sameSite: "None",
             path: "/",
             maxAge: 3600000
         }).sendStatus(200);
